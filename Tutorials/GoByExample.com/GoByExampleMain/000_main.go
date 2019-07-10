@@ -30,5 +30,8 @@ func main() {
 	
 	GoByExample.Switch_007()
 	fmt.Println("")
+	
+	GoByExample.Arrays_008()
+	fmt.Println("")
 
 }
