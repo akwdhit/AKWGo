@@ -18,5 +18,17 @@ func main() {
 	
 	GoByExample.Variables_003()
 	fmt.Println("")
+	
+	GoByExample.Constants_004()
+	fmt.Println("")
+	
+	GoByExample.For_005()
+	fmt.Println("")
+	
+	GoByExample.If_006()
+	fmt.Println("")
+	
+	GoByExample.Switch_007()
+	fmt.Println("")
 
 }
