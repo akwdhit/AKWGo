@@ -2,7 +2,6 @@ package filehandlerutils
 
 import (
 	"encoding/json"
-	"io/ioutil"
 	"os"
 )
 
@@ -53,17 +52,4 @@ func (f *FileHandler1) PrintToJSONFile(content interface{}) (string, int, error)
 // PrintToFile : Implementing interface of FileHandler, to print to general file. Output: [file name, total byte read, error]
 func (f *FileHandler1) PrintToFile(content string) (string, int, error) {
 	return f.fileWriter([]byte(content))
-}
-
-// ReadFromJSON : Implementing interface of FileHandler, to read from JSON. Output: [string format of the file content, length of the file byte, err if any]
-func (f *FileHandler1) ReadFromJSON(s *interface{}) (string, int, error) {
-	// aVon https://www.golangprograms.com/golang-read-json-file-into-struct.html
-	file, err := ioutil.ReadFile("files/result/republish_order.json")
-	if err != nil {
-		return "", 0, err
-	}
-
-	err = json.Unmarshal([]byte(file), &s)
-
-	return string(file), len(file), err
 }

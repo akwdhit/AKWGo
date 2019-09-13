@@ -4,6 +4,5 @@ package filehandlerutils
 type FileHandler interface {
 	PrintToJSONFile() (string, int, error)
 	PrintToFile() (string, int, error)
-	ReadFromJSON(interface{}) (string, int, error)
 	ReadFromFile() (string, int, error)
 }
