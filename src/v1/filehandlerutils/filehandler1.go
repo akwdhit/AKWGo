@@ -7,7 +7,6 @@ import (
 
 // FileHandler1 : Struct implementing interface FileHandler
 type FileHandler1 struct {
-	Content  []byte
 	FilePath string
 }
 
@@ -40,7 +39,7 @@ func (f *FileHandler1) fileWriter(content []byte) (string, int, error) {
 func (f *FileHandler1) PrintToJSONFile(content interface{}) (string, int, error) {
 	// aVon https://www.golangprograms.com/golang-writing-struct-to-json-file.html
 	prefix := ""
-	indent := ""
+	indent := " "
 
 	jsonFormat, err := json.MarshalIndent(content, prefix, indent)
 	if err != nil {
