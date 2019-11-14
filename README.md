@@ -8,4 +8,3 @@ This place is to place all the things related to Go that I learn until now from 
 
 ## src/v2/pkg/datastructure/struct.go
 <a href="https://github.com/akwdhit/AKWGo/tree/master/src/v2/pkg/datastructure">struct.go</a> is a file that contains 'ValidateStructValue' method that will check whether the passed argument struct contains empty field or not.
-G
