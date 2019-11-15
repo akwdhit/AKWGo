@@ -30,9 +30,16 @@ func ValidateStructValue(parentName string, field interface{}) (emptyField strin
 		var currentField = indirectReflect.Field(i)
 		if !currentField.CanInterface() {
 			// aTo prevent error cannot return value obtained from unexported field or method
+			// aI parse it manually for some "Kind"
 			switch currentField.Kind() {
 			case reflect.String:
 				currentFieldValue = currentField.String()
+				break
+			case reflect.Int:
+				currentFieldValue = currentField.Int()
+				break
+			case reflect.Ptr:
+				currentFieldValue = currentField.Pointer()
 				break
 			default:
 				continue
@@ -58,8 +65,8 @@ func ValidateStructValue(parentName string, field interface{}) (emptyField strin
 			}
 		}
 
-		// aNil validation
-		if !constIsNilAllowed && currentFieldValue == nil {
+		// aNil validation for pointer. If it is an empty pointer, it will return uintptr(0) on .Pointer()
+		if !constIsNilAllowed && currentField.Kind() == reflect.Ptr && currentFieldValue == uintptr(0) {
 			currentFieldName := indirectReflect.Type().Field(i).Name
 			if parentName == "" {
 				emptyField = currentFieldName
