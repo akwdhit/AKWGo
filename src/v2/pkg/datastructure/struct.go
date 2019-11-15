@@ -16,7 +16,6 @@ const (
 // ValidateStructValue : aA recursive function to validate whether the configuration contains nil or empty string.
 // Input: [parentName - string - at default it is ""] & [field - interface{} - object to be checked]
 func ValidateStructValue(parentName string, field interface{}) (emptyField string, err error) {
-	// TODO: Handle unexported struct
 	// aInspired by https://stackoverflow.com/questions/18926303/iterate-through-the-fields-of-a-struct-in-go
 	// aInspired by https://stackoverflow.com/questions/24337145/get-name-of-struct-field-using-reflection
 
