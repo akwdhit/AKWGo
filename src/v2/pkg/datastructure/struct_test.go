@@ -86,6 +86,8 @@ func Test_ValidateStructValue(t *testing.T) {
 			}
 			if emptyField == "" && !tt.shouldEmptyFieldEmpty {
 				t.Errorf("%s - validateStructValue() Don't expect empty field has value but it does", tt.name)
+			} else {
+				t.Logf("Empty Field: %#v", emptyField)
 			}
 		})
 	}

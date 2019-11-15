@@ -51,12 +51,13 @@ func ValidateStructValue(parentName string, field interface{}) (emptyField strin
 		// aBut, is it also a struct? Loop inner struct if it is
 		checkReflect := reflect.Indirect(reflect.ValueOf(currentFieldValue))
 		if checkReflect.Kind() == reflect.Struct { // aLoop if struct
+			var tempParentName string
 			if parentName != "" {
-				parentName = parentName + constParentChildSeparator + indirectReflect.Type().Field(i).Name
+				tempParentName = parentName + constParentChildSeparator + indirectReflect.Type().Field(i).Name
 			} else {
-				parentName = indirectReflect.Type().Field(i).Name
+				tempParentName = indirectReflect.Type().Field(i).Name
 			}
-			emptyField, err = ValidateStructValue(parentName, currentFieldValue)
+			emptyField, err = ValidateStructValue(tempParentName, currentFieldValue)
 
 			// aBreak condition of the loop
 			if emptyField != "" || err != nil {
